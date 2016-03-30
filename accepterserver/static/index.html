@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Gif Accepter</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link href="/static/css/reset.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+
+  </head>
+
+  <body touch-action="none">
+
+    <div class="container silver-gradient">
+
+      <div class="view" id="start-view">
+        <button id="start">START RECORDING<br> MY DANCE MOVES</button>
+      </div>
+
+      <div class="view hidden" id="countdown3-view">
+        <h1 class="neon bright">3</h1>
+      </div>
+
+      <div class="view hidden" id="countdown2-view">
+        <h1 class="neon bright">2</h1>
+      </div>
+
+      <div class="view hidden" id="countdown1-view">
+        <h1 class="neon bright">1</h1>
+      </div>
+
+      <div class="view hidden" id="dance-view">
+        <div id="progress-bar"></div>
+        <h1 class="neon bright">DANCE!</h1>
+      </div>
+
+      <div class="view hidden" id="preview-view">
+          <img class="loader" src="/static/img/loader.gif" alt="">
+          <br class="loader"/>
+          <p class="neon bright loader">Wait 10 seconds</p>
+
+          <div id="preview-container">
+            <img id="preview-loader" class="hidden" src="/static/img/loader.gif" alt="">
+          </div>
+
+          <br />
+          <div class="button-wrap">
+            <button id="accept">ACCEPT</button>
+            <button id="decline">REJECT</button>
+          </div>
+
+      </div>
+
+      <div class="view hidden" id="information-view">
+          <p class="neon bright">You are now partying on the dancefloor!</p>
+          <br>
+          <br>
+          <p class="neon bright">You can move or resize yourself on the control computer.</p>
+          <br>
+          <br>
+          <p class="neon bright" id="ok">←</p>
+      </div>
+
+    </div>
+
+    <script src="/static/js/jquery-1.9.1.js"></script>
+    <script src="/static/js/jquery.fullscreen.js"></script>
+    <script src="/static/js/mousetrap.js"></script>
+    <script src="/static/js/fastclick.js"></script>
+    <script src="/static/js/main.js"></script>
+
+  </body>
+</html>

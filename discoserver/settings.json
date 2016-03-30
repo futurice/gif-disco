@@ -1,0 +1,26 @@
+{
+    "maxVisible": 10,
+
+    "_comment": "switchDancers is interval when to switch dancers. In seconds",
+    "switchDancers": 10,
+
+    "backgrounds": [
+        ["02:00", "03:00", "/static/img/cafe.jpg"],
+        ["01:00", "02:00", "/static/img/cafe.jpg"],
+        ["00:00", "01:00", "/static/img/cafe.jpg"],
+        ["23:00", "24:00", "/static/img/cafe.jpg"],
+        ["22:00", "23:00", "/static/img/cafe.jpg"],
+        ["21:00", "22:00", "/static/img/cafe.jpg"],
+        ["20:00", "21:00", "/static/img/cafe.jpg"],
+        ["19:00", "20:00", "/static/img/cafe.jpg"],
+        ["18:00", "19:00", "/static/img/cafe.jpg"],
+        ["17:00", "18:00", "/static/img/cafe.jpg"],
+        ["16:00", "17:00", "/static/img/cafe.jpg"]
+    ],
+
+    "consumer_key": "<Twitter API Key>",
+    "consumer_secret": "<Twitter API Secret>",
+    "access_token_key": "<Twitter Access Token>",
+    "access_token_secret": "<Twitter Access Token Secret>"
+
+}

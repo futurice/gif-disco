@@ -1,0 +1,5 @@
+{
+    "danceProgressTime": 3500,
+    "gifScriptCommand": ["python", "../gifcreator/capture.py"],
+    "gifsDirectory": "../discoserver/static/img/gifs"
+}

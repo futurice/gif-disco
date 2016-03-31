@@ -69,11 +69,9 @@ Install Python dependencies. This is recommended to do inside a virtualenv.
 
 # Installing on Ubuntu
 
-Then inside vagrant box install:
-
     sudo apt-add-repository ppa:jon-severinsson/ffmpeg
     sudo apt-get update
-    sudo apt-get install ffmpeg
+    sudo apt-get install ffmpeg imagemagick
 
     sudo apt-get install git python-pip libevent-dev python-dev libjpeg-dev libfreetype6-dev zlib1g-dev libpng12-dev
 

@@ -1,3 +1,6 @@
+# Generated resources
+static/img/gifs
+
 *.py[cod]
 
 # C extensions

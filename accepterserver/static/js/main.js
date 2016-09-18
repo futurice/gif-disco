@@ -97,6 +97,7 @@ function startCountDown() {
 
                 console.log('getGif returned');
                 $('.loader').addClass('hidden');
+                $('#preview-view .input-wrap').removeClass('hidden');
                 $('#preview-view button').removeClass('hidden');
 
                 $('#preview').remove();
@@ -133,9 +134,12 @@ function startCountDown() {
         timers.push(timer);
 
         timer = setTimeout(function() {
+            $('#preview-view .input-wrap').addClass('hidden');
             $('#preview-view button').addClass('hidden');
             $('#preview-container > img').addClass('hidden');
             $('#loader').removeClass('hidden');
+          
+            $('#preview-view .input-wrap input').val('');
 
             showView('preview-view');
             $('#progress-bar').animate({left: 0}, 0);

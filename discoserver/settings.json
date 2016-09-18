@@ -5,17 +5,17 @@
     "switchDancers": 10,
 
     "backgrounds": [
-        ["02:00", "03:00", "/static/img/cafe.jpg"],
-        ["01:00", "02:00", "/static/img/cafe.jpg"],
-        ["00:00", "01:00", "/static/img/cafe.jpg"],
-        ["23:00", "24:00", "/static/img/cafe.jpg"],
-        ["22:00", "23:00", "/static/img/cafe.jpg"],
-        ["21:00", "22:00", "/static/img/cafe.jpg"],
-        ["20:00", "21:00", "/static/img/cafe.jpg"],
-        ["19:00", "20:00", "/static/img/cafe.jpg"],
-        ["18:00", "19:00", "/static/img/cafe.jpg"],
-        ["17:00", "18:00", "/static/img/cafe.jpg"],
-        ["16:00", "17:00", "/static/img/cafe.jpg"]
+        ["02:00", "03:00", "/static/img/disco.jpg"],
+        ["01:00", "02:00", "/static/img/disco.jpg"],
+        ["00:00", "01:00", "/static/img/disco.jpg"],
+        ["23:00", "24:00", "/static/img/disco.jpg"],
+        ["22:00", "23:00", "/static/img/disco.jpg"],
+        ["21:00", "22:00", "/static/img/disco.jpg"],
+        ["20:00", "21:00", "/static/img/disco.jpg"],
+        ["19:00", "20:00", "/static/img/disco.jpg"],
+        ["18:00", "19:00", "/static/img/disco.jpg"],
+        ["17:00", "18:00", "/static/img/disco.jpg"],
+        ["16:00", "17:00", "/static/img/disco.jpg"]
     ],
 
     "consumer_key": "<Twitter API Key>",

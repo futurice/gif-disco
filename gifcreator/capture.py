@@ -36,9 +36,19 @@ settings = {
 
     # Use wacaw -L to list available camera inputs. In OS X 0 is usually
     # iSight, and 1 is USB web cam. It might change though.
-    'camera_input': '0'
+    'camera_input': '0',
+  
+    # Select capture tool from the cmds list below
+    'capture_cmd': 'avfoundation'
 }
 
+cmds = {
+    # AVFoundation is available on Mac OS X 10.7 (Lion) and later.
+    'avfoundation': 'ffmpeg -f avfoundation -framerate 30 -i "{camera_input}:none" -video_size {output_size} -t 4 -y preview.mpg',
+  
+    # Wacaw needs to be installed separately for Mac OS
+    'wacaw': 'wacaw -d {camera_input} -i {camera_input} --video --duration 4 --width {width} --height {height} preview'
+}
 
 def main():
     clean()
@@ -52,15 +62,13 @@ def clean():
     with ctx.settings(warn_only=True):
         local('rm frames/*.png')
 
-
 def capture_video():
     w, h = settings['output_size'].split('x')
-    cmd = 'wacaw -d {camera_input} -i {camera_input} --video --duration 4 --width {width} --height {height} preview'
+    cmd = cmds[settings['capture_cmd']]
     local(cmd.format(width=w, height=h, **settings))
 
-
 def split_video_to_frames():
-    cmd = r'ffmpeg -i "preview.avi" -an -ss 00:00:01.50 -r 7 -f image2 -s {output_size} "frames/preview%4d.png"'
+    cmd = r'ffmpeg -i "preview.mpg" -an -ss 00:00:01.50 -r 7 -f image2 -s {output_size} "frames/preview%4d.png"'
     local(cmd.format(**settings))
 
 

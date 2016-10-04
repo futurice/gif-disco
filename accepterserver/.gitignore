@@ -1,1 +1,4 @@
 *.pyc
+
+# Futubile api keys
+api_config.py

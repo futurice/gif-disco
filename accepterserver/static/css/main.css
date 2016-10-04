@@ -104,6 +104,7 @@ p {
     border-bottom-right-radius: 5px;
     color: #333;
     border: 1px solid #888;
+    text-transform: uppercase
 }
 
 #preview-view button {

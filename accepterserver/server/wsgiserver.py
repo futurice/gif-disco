@@ -5,6 +5,9 @@ WARNING: Do NOT use this as a public web server in any way, this is not safe.
          The static file server has not been built against any threats.
 """
 
+# Futubile backend configs
+import api_config
+
 import json
 import logging
 import mimetypes
@@ -14,8 +17,13 @@ import time
 import shutil
 import subprocess
 
+from poster.encode import multipart_encode
+from poster.streaminghttp import register_openers
+import urllib2
+
 import path
 from settings import settings
+from pprint import pformat
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 logger = logging.getLogger(__name__)
@@ -26,6 +34,8 @@ HEADERS = [
     ("Pragma", "no-cache"),
     ("Expires", "0")
 ]
+
+register_openers()
 
 def main_app(env, start_response):
     """Provides following features:
@@ -67,12 +77,24 @@ def main_app(env, start_response):
 
     elif request_path == '/save_gif':
         directory = os.path.abspath(settings['gifsDirectory'])
-
-        new_name = str(int(time.time())) + '.gif'
+        
+        code = get_post_data(env)
+        
+        new_name = str(int(time.time()))
+        if len(code) > 0:
+            new_name += '_' + code;
+        
+        new_name += new_name + '.gif'
+        
         os.rename(path.get_resource('static/img/preview.gif'),
                   path.get_resource('static/img/%s' % new_name))
-        shutil.move(path.get_resource('static/img/%s' % new_name), directory)
 
+        # Post image to the party app backend
+        if len(code) > 0:
+            post_gif('static/img/%s' % new_name, code)
+        
+        shutil.move(path.get_resource('static/img/%s' % new_name), directory)
+        
         response = 'OK'
         start_response('200 OK', HEADERS)
         return [json.dumps(response)]
@@ -167,3 +189,11 @@ def get_post_data(env):
     if length != 0:
         body = env['wsgi.input'].read(length)
     return body
+
+def post_gif(filePath, code):
+    print('post gif ' + filePath + ':' + code)
+    datagen, headers = multipart_encode({"code":code, "image": open(filePath, 'rb')})
+    headers['x-token'] = api_config.X_TOKEN
+    headers['x-gif-api-token'] = api_config.X_GIF_API_TOKEN
+    request = urllib2.Request(api_config.ENDPOINT, datagen, headers)
+    print urllib2.urlopen(request).read()

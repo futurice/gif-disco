@@ -139,7 +139,7 @@ function startCountDown() {
             $('#preview-container > img').addClass('hidden');
             $('#loader').removeClass('hidden');
           
-            $('#preview-view .input-wrap input').val('');
+            $('#guest-code').val('');
 
             showView('preview-view');
             $('#progress-bar').animate({left: 0}, 0);
@@ -159,12 +159,13 @@ function sendGif(success) {
     $.ajax({
         url: "/save_gif",
         type: "POST",
-        data: {},
-        dataType: "json",
+        contentType: "text/plain",
+        data: $('#guest-code').val().toUpperCase(),
+        dataType: "text",
         success: success,
         // Silently fail
         error: success,
-        async: false,
+        async: true,
     });
 }
 

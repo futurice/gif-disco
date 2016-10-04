@@ -22,35 +22,36 @@
         <button id="start">START RECORDING<br> MY DANCE MOVES</button>
       </div>
 
-      <div class="view hidden" id="countdown3-view">
+      <div class="view hidden flyout" id="countdown3-view">
         <h1 class="neon bright">3</h1>
       </div>
 
-      <div class="view hidden" id="countdown2-view">
+      <div class="view hidden flyout" id="countdown2-view">
         <h1 class="neon bright">2</h1>
       </div>
 
-      <div class="view hidden" id="countdown1-view">
+      <div class="view hidden flyout" id="countdown1-view">
         <h1 class="neon bright">1</h1>
       </div>
 
-      <div class="view hidden" id="dance-view">
+      <div class="view hidden flyin" id="dance-view">
+        <div id="progress-track"></div>
         <div id="progress-bar"></div>
-        <h1 class="neon bright">DANCE!</h1>
+        <h1 class="neon bright bounce"><em>D</em><em>A</em><em>N</em><em>C</em><em>E</em><em>!</em></h1>
       </div>
 
       <div class="view hidden" id="preview-view">
-          <img class="loader" src="/static/img/loader.gif" alt="">
-          <br class="loader"/>
-          <p class="neon bright loader">Wait 10 seconds</p>
+          <p class="neon bright loader">Wait for it...</p>
+          <img class="loader" src="/static/img/glasses.gif" alt="">
 
           <div class="input-wrap hidden">
-            <span>OPTIONAL: YOUR PARTY APP GUEST CODE</span>
+            <span>GUEST CODE</span>
+            <span style="font-size: 1em">(ENABLES CLAIMING THE GIF LATER)</span>
             <input id="guest-code" placeholder="____" maxlength="4" /><br />
           </div>
         
           <div id="preview-container">
-            <img id="preview-loader" class="hidden" src="/static/img/loader.gif" alt="">
+            <img id="preview-loader" class="hidden" src="/static/img/bottle.gif" alt="">
           </div>
 
           <br />
@@ -62,13 +63,15 @@
 
       </div>
 
+      <div class="view hidden" id="upload-view">
+        
+      </div>
+      
       <div class="view hidden" id="information-view">
-          <p class="neon bright">You are now partying on the dancefloor!</p>
-          <br>
-          <br>
-          <p class="neon bright">You can move or resize yourself on the control computer.</p>
-          <br>
-          <br>
+          <p class="neon bright">You are now partying on the dance floor!</p>
+          <img src="/static/img/resize.png" height="300" alt="">
+          <p class="neon bright">Go find the perfect spot for yourself!</p>
+          
           <p class="neon bright" id="ok">←</p>
       </div>
 

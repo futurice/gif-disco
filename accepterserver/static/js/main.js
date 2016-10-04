@@ -201,6 +201,9 @@ $(function() {
     });
 
     $('#accept').on('click', function() {
+        $('#upload-view').html('<img src="/static/img/bottle.gif" height="300" alt="">');
+      
+        showView('upload-view');
         sendGif(function() {
             showView('information-view');
             setTimeout(function() {

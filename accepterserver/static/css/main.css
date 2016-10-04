@@ -1,18 +1,8 @@
-/* latin */
-@font-face {
-  font-family: 'Advent Pro';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Advent Pro Bold'), local('AdventPro-Bold'), url(advent.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-
 body, html {
     height: 100%;
     width: 100%;
-    background: #474747 url(../img/bg.png);
-    font-family: "Advent Pro";
+    background-color: #FF5240;
+    font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
     overflow: hidden;
 }
 
@@ -24,7 +14,7 @@ body, html {
 }
 
 h1 {
-    font-size: 300px;
+    font-size: 16em;
     letter-spacing: -10px;
 }
 
@@ -51,7 +41,7 @@ p {
 }
 
 #information-view, #preview-view {
-    padding-top: 10%;
+    padding-top: 5%;
     display: block;
     text-align: center;
 }
@@ -64,8 +54,19 @@ p {
     position: absolute;
     top: 10px;
     left: 10px;
+    width: 320px;
+    margin: 0;
+    padding: 0;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.1);
+    background-color: #210F00;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    border-width: 0;
+    border-top-width: 10px;
+    overflow: hidden;
 }
 
 .input-wrap.hidden {
@@ -74,37 +75,35 @@ p {
 
 .input-wrap span {
     display: block;
-    width: 300px;
-    margin: 0;
-    color: #fff;
-    border: none;
-    font-size: 2em;
-    background-color: #333;
-    text-align: center;
-    padding: 10px;
-    border: 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: #FFC2F7;
-    border: 1px solid #888;
+    font-size: 1.7em;
+    margin: 15px;
 }
 
 .input-wrap input {
-    display: block;
-    width: 300px;
+    width: 110%;
     margin: 0;
+    margin-left: -5%;
     border: none;
     letter-spacing: 0.15em;
-    font-size: 4.6em;
+    font-size: 4.7em;
     background-color: #fff;
-    text-align: center;
-    padding: 10px;
+    text-align: center; 
     border: 0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: #333;
-    border: 1px solid #888;
-    text-transform: uppercase
+    color: #210F00;
+    text-transform: uppercase;
+}
+
+.input-wrap input::-webkit-input-placeholder {
+   color: #FF5240;
+}
+.input-wrap input:-moz-placeholder { /* Firefox 18- */
+   color: #FF5240;  
+}
+.input-wrap input::-moz-placeholder {  /* Firefox 19+ */
+   color: #FF5240;  
+}
+.input-wrap input:-ms-input-placeholder {  
+   color: #FF5240;  
 }
 
 #preview-view button {
@@ -118,47 +117,62 @@ p {
 
 button:hover {
     cursor: pointer;
-    /*
-    -webkit-transition:text-shadow 0.5s ease-in-out;
-    text-shadow: 0 0 10px #ff99de, 0 0 20px #ff99de, 0 0 30px #ff99de, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
-    */
+    transform: rotate(-1deg);
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 button {
     letter-spacing: 0.15em;
     font-size: 4.6em;
-    background-color: #222;
+    background-color: #fff;
     padding: 30px;
-    border: 0;
     border-radius: 5px;
-    color: #FFC2F7;
+    color: #210F00;
     font-size: 60px;
-    border: 1px solid #888;
-    /*-webkit-transition:text-shadow 0.5s ease-in-out;*/
-    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de, 0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+    border: 0;
+    font-weight: bold;
+    transform: rotate(2deg);
+    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:nth-child(even) {
+    transform: rotate(-1deg);
+}
+
+button:nth-child(even):hover {
+    transform: rotate(1deg);
 }
 
 .neon {
     text-align: center;
-    font-family: "Advent Pro";
+    font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    color: #6d5669;
-    text-shadow: 0 0 3px #635861, 0 0 5px #635861;
+    color: #210F00;
 }
 
 .bright {
-    color: white;
-    text-shadow: 0 0 5px #ff99de, 0 0 10px #ff99de, 0 0 15px #ff99de, 0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de;
+    color: #fff;
+    text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 #progress-bar {
-    background: white;
+    background: #FF5240;
+    position: fixed;
+    height: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+#progress-track {
+    background: repeating-linear-gradient(45deg, #009692, #009692 5%, #fae45d 5%, #fae45d 10%);
     position: fixed;
     height: 50px;
     left: 0;
     top: 0;
     width: 100%;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 #preview-view img {
@@ -170,9 +184,12 @@ button {
     height: 100px;
 }
 
+img.loader {
+  width: 100%;
+}
 
 p#ok:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 p#ok {
@@ -199,4 +216,30 @@ p#ok {
     height: 50px;
     font-size: 20px;
     padding: 5px;
+}
+
+.flyin:not(.hidden) {
+  animation: flyin 1s ease forwards;
+  opacity: 0;
+  transform: scale(2);
+}
+
+.flyout:not(.hidden) {
+  animation: flyout 1s ease forwards;
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes flyin {
+   to {
+     transform: scale(1);
+     opacity: 1;
+   }
+}
+
+@keyframes flyout {
+   to {
+     transform: scale(2);
+     opacity: 0;
+   }
 }

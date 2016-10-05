@@ -84,7 +84,7 @@ def main_app(env, start_response):
         if len(code) > 0:
             new_name += '_' + code;
         
-        new_name += new_name + '.gif'
+        new_name += '.gif'
         
         os.rename(path.get_resource('static/img/preview.gif'),
                   path.get_resource('static/img/%s' % new_name))

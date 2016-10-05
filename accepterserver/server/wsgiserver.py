@@ -90,8 +90,7 @@ def main_app(env, start_response):
                   path.get_resource('static/img/%s' % new_name))
 
         # Post image to the party app backend
-        if len(code) > 0:
-            post_gif('static/img/%s' % new_name, code)
+        post_gif('static/img/%s' % new_name, code)
         
         shutil.move(path.get_resource('static/img/%s' % new_name), directory)
         
@@ -192,8 +191,14 @@ def get_post_data(env):
 
 def post_gif(filePath, code):
     print('post gif ' + filePath + ':' + code)
-    datagen, headers = multipart_encode({"code":code, "image": open(filePath, 'rb')})
+    datagen, headers = get_headers(filePath, code)
     headers['x-token'] = api_config.X_TOKEN
     headers['x-gif-api-token'] = api_config.X_GIF_API_TOKEN
     request = urllib2.Request(api_config.ENDPOINT, datagen, headers)
     print urllib2.urlopen(request).read()
+    
+def get_headers(filePath, code):
+    if len(code) > 0:
+        return multipart_encode({"code":code, "image": open(filePath, 'rb')})
+    else:
+        return multipart_encode({"image": open(filePath, 'rb')})

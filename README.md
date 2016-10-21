@@ -73,13 +73,15 @@ Install Python dependencies. This is recommended to do inside a virtualenv.
     sudo apt-get update
     sudo apt-get install ffmpeg imagemagick
 
-    sudo apt-get install git python-pip libevent-dev python-dev libjpeg-dev libfreetype6-dev zlib1g-dev libpng12-dev
+    sudo apt-get install git python-pip libevent-dev python-dev libjpeg-dev libfreetype6-dev zlib1g-dev libpng12-dev streamer
 
     sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
     sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib
     sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib
 
     sudo pip install -r requirements.txt
+    
+    After install is finished, edit /gifcreator/capture.py and change capture_cmd to 'streamer'
     
 # SSL problem with Ubuntu & Python
 

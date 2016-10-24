@@ -28,7 +28,7 @@ Disco Server basically serves the disco website. It shifts people around the dan
 # Running GIF Disco
 
 
-** This has only been tested on Mac OS X.**
+** This has been tested on Mac OS X & Ubuntu 16.01 LTS **
 
 Clean files:
 

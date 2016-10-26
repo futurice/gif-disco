@@ -83,7 +83,26 @@ Install Python dependencies. This is recommended to do inside a virtualenv.
     
     After install is finished, edit /gifcreator/capture.py and change capture_cmd to 'streamer'
     
-# SSL problem with Ubuntu & Python
+# Installing on Raspbian (Rpi3)
+
+    ffmpeg is not found (with current knowledge) via apt-get for ARM, follow instructions as told in
+    https://github.com/ccrisan/motioneye/wiki/Install-On-Raspbian:
+   
+    wget https://github.com/ccrisan/motioneye/wiki/precompiled/ffmpeg_3.1.1-1_armhf.deb
+    sudo dpkg -i ffmpeg_3.1.1-1_armhf.deb
+
+    sudo apt-get install imagemagick
+    sudo apt-get install git python-pip libevent-dev python-dev libjpeg-dev libfreetype6-dev zlib1g-dev libpng12-dev streamer
+
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib
+
+    sudo pip install -r requirements.txt
+    
+    After install is finished, edit /gifcreator/capture.py and change capture_cmd to 'streamer'
+    
+# SSL problem with Ubuntu/Raspbian & Python
 
     Python may give SSL error for using SSLv3, can be fixed by editing the ssl.py file which gives the error. 
     Find row def get_server_certificate(addr, ssl_version=PROTOCOL_SSLv3, ca_certs=None) near the bottom and change 

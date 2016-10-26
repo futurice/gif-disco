@@ -94,9 +94,9 @@ Install Python dependencies. This is recommended to do inside a virtualenv.
     sudo apt-get install imagemagick
     sudo apt-get install git python-pip libevent-dev python-dev libjpeg-dev libfreetype6-dev zlib1g-dev libpng12-dev streamer
 
-    sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
-    sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib
-    sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib
+    sudo ln -s /usr/lib/arm-linux-gnueabihf/libjpeg.so /usr/lib
+    sudo ln -s /usr/lib/arm-linux-gnueabihf/libfreetype.so /usr/lib
+    sudo ln -s /usr/lib/arm-linux-gnueabihf/libz.so /usr/lib
 
     sudo pip install -r requirements.txt
     
@@ -107,4 +107,4 @@ Install Python dependencies. This is recommended to do inside a virtualenv.
     Python may give SSL error for using SSLv3, can be fixed by editing the ssl.py file which gives the error. 
     Find row def get_server_certificate(addr, ssl_version=PROTOCOL_SSLv3, ca_certs=None) near the bottom and change 
     protocol to SSLv23.
-    More info regarding this bug can be foudn from https://github.com/gevent/gevent/issues/513
+    More info regarding this bug can be found from https://github.com/gevent/gevent/issues/513

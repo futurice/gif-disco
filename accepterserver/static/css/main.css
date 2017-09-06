@@ -61,16 +61,15 @@ p {
 
 .input-wrap {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 320px;
+    top: 16px;
+    left: 16px;
+    width: 300px;
     margin: 0;
     padding: 0;
     margin-left: auto;
     margin-right: auto;
     color: #fff5af;
     text-align: center;
-    border: 2px solid #fff;
     overflow: hidden;
 }
 
@@ -93,27 +92,29 @@ p {
     width: 110%;
     margin: 0;
     margin-left: -5%;
+    padding-top: 0.13em;
     border: none;
     letter-spacing: 0.15em;
-    font-size: 4.7em;
-    background-color: rgba(0, 0, 0, 0);
+    font-family: Futurice-Monospaced, "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    font-size: 4.4em;
+    background-color: #fff;
     text-align: center; 
     border: 0;
-    color: #fff;
+    color: #4a3092;
     text-transform: uppercase;
 }
 
 .input-wrap input::-webkit-input-placeholder {
-   color: #fff;
+   color: #4a3092;
 }
 .input-wrap input:-moz-placeholder { /* Firefox 18- */
-   color: #fff;  
+   color: #4a3092;  
 }
 .input-wrap input::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
+   color: #4a3092;  
 }
 .input-wrap input:-ms-input-placeholder {  
-   color: #fff;  
+   color: #4a3092;  
 }
 
 #preview-view button {
@@ -128,18 +129,19 @@ p {
 button:hover {
     cursor: pointer;
     transform: rotate(-1deg);
+    border: 2px solid #fff5af;
     /* box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1); */
 }
 
 button {
     letter-spacing: 0.15em;
     font-size: 4.6em;
-    background-color: rgba(74, 48, 146, 0);
-    padding: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 16px;
     border-radius: 0px;
-    color: #fff5af;
+    color: #fff;
     font-size: 60px;
-    border: 2px solid #fff5af;
+    border: 2px solid #a198c4;
     text-transform: lowercase;
     transform: rotate(2deg);
     /* box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.1); */
@@ -148,6 +150,7 @@ button {
 
 button:nth-child(even) {
     transform: rotate(-1deg);
+    color: #ff9090;
 }
 
 button:nth-child(even):hover {

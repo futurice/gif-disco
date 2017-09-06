@@ -1,7 +1,7 @@
 Fabric==1.8.1
 Pillow==2.5.3
 ecdsa==0.10
-gevent==0.13.8
+gevent==1.2.1
 greenlet==0.4.1
 httplib2==0.8
 oauth2==1.5.211
@@ -13,3 +13,4 @@ requests==2.0.0
 requests-oauthlib==0.4.0
 simplejson==3.3.1
 wsgiref==0.1.2
+poster==0.8.1

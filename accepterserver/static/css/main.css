@@ -1,9 +1,18 @@
+@import "fonts.css" screen;
+
 body, html {
     height: 100%;
     width: 100%;
-    background-color: #FF5240;
-    font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    background-image: url(../img/bg-pattern.png);
+    background-size: cover;
+    background-color: #4a3092;
+    font-family: Futurice-Monospaced, "proxima-nova", "Helvetica Neue", Arial, sans-serif;
     overflow: hidden;
+}
+
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url(../img/pattern.png);
 }
 
 .hidden {
@@ -59,13 +68,9 @@ p {
     padding: 0;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.1);
-    background-color: #210F00;
-    color: #fff;
+    color: #fff5af;
     text-align: center;
-    border-radius: 5px;
-    border-width: 0;
-    border-top-width: 10px;
+    border: 2px solid #fff;
     overflow: hidden;
 }
 
@@ -77,6 +82,11 @@ p {
     display: block;
     font-size: 1.7em;
     margin: 15px;
+    color: #ff9090;
+}
+
+.input-wrap span:first-child {
+    color: #fff5af;
 }
 
 .input-wrap input {
@@ -86,24 +96,24 @@ p {
     border: none;
     letter-spacing: 0.15em;
     font-size: 4.7em;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0);
     text-align: center; 
     border: 0;
-    color: #210F00;
+    color: #fff;
     text-transform: uppercase;
 }
 
 .input-wrap input::-webkit-input-placeholder {
-   color: #FF5240;
+   color: #fff;
 }
 .input-wrap input:-moz-placeholder { /* Firefox 18- */
-   color: #FF5240;  
+   color: #fff;  
 }
 .input-wrap input::-moz-placeholder {  /* Firefox 19+ */
-   color: #FF5240;  
+   color: #fff;  
 }
 .input-wrap input:-ms-input-placeholder {  
-   color: #FF5240;  
+   color: #fff;  
 }
 
 #preview-view button {
@@ -118,21 +128,22 @@ p {
 button:hover {
     cursor: pointer;
     transform: rotate(-1deg);
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1); */
 }
 
 button {
     letter-spacing: 0.15em;
     font-size: 4.6em;
-    background-color: #fff;
+    background-color: rgba(74, 48, 146, 0);
     padding: 30px;
-    border-radius: 5px;
-    color: #210F00;
+    border-radius: 0px;
+    color: #fff5af;
     font-size: 60px;
-    border: 0;
-    font-weight: bold;
+    border: 2px solid #fff5af;
+    text-transform: lowercase;
     transform: rotate(2deg);
-    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.1); */
+    font-family: Futurice-Monospaced, "proxima-nova", "Helvetica Neue", Arial, sans-serif;
 }
 
 button:nth-child(even) {
@@ -145,34 +156,35 @@ button:nth-child(even):hover {
 
 .neon {
     text-align: center;
-    font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #210F00;
+    font-family: Futurice-Monospaced, "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    text-transform: lowercase;
+    color: #4a3092;
 }
 
 .bright {
-    color: #fff;
+    color: #fff5af;
     text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 #progress-bar {
-    background: #FF5240;
+    background: #4a3092;
     position: fixed;
-    height: 80px;
+    height: 50px;
     left: 0;
     top: 0;
     width: 100%;
 }
 
 #progress-track {
-    background: repeating-linear-gradient(45deg, #009692, #009692 5%, #fae45d 5%, #fae45d 10%);
+    /*background: repeating-linear-gradient(45deg, #4a3092, #4a3092 5%, #ff9090 5%, #ff9090 10%);*/
+    background-image: url(../img/pattern.png);
+    background-size: cover;
     position: fixed;
     height: 50px;
     left: 0;
     top: 0;
     width: 100%;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);*/
 }
 
 #preview-view img {

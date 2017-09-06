@@ -1,0 +1,25 @@
+/* FONTS */
+
+/* Body regular */
+
+@font-face {
+	font-family: Futurice-Regular;
+	src:url('../fonts/Futurice Regular.woff') format('woff'),
+      url('../fonts/Futurice Regular.otf') format('opentype');
+}
+
+/* Body bold */
+
+@font-face {
+	font-family: Futurice-Bold;
+	src:url('../fonts/Futurice Bold.woff') format('woff'),
+      url('../fonts/Futurice Bold.otf') format('opentype');
+}
+
+/* Title */
+
+@font-face {
+	font-family: Futurice-Monospaced;
+	src:url('../fonts/Futurice Monospaced.woff') format('woff'),
+      url('../fonts/Futurice Monospaced.otf') format('opentype');
+}

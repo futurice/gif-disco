@@ -97,24 +97,24 @@ p {
     letter-spacing: 0.15em;
     font-family: Futurice-Monospaced, "proxima-nova", "Helvetica Neue", Arial, sans-serif;
     font-size: 4.4em;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     text-align: center; 
     border: 0;
-    color: #4a3092;
+    color: #fff;
     text-transform: uppercase;
 }
 
 .input-wrap input::-webkit-input-placeholder {
-   color: #4a3092;
+   color: #fff;
 }
 .input-wrap input:-moz-placeholder { /* Firefox 18- */
-   color: #4a3092;  
+   color: #fff;  
 }
 .input-wrap input::-moz-placeholder {  /* Firefox 19+ */
-   color: #4a3092;  
+   color: #fff;  
 }
 .input-wrap input:-ms-input-placeholder {  
-   color: #4a3092;  
+   color: #fff;  
 }
 
 #preview-view button {
@@ -200,7 +200,7 @@ button:nth-child(even):hover {
 }
 
 img.loader {
-  width: 100%;
+  width: 40%;
 }
 
 p#ok:hover {

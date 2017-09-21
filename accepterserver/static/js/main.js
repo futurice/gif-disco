@@ -196,11 +196,11 @@ $(function() {
         }
     });
 
-    $('#start').on('click', function() {
+    $('#start').on('click touchend', function() {
         startCountDown();
     });
 
-    $('#accept').on('click', function() {
+    $('#accept').on('click touchend', function() {
         $('#upload-view').html('<img src="/static/img/BirdSantaTom.gif" height="640" alt="">');
       
         showView('upload-view');
@@ -216,7 +216,7 @@ $(function() {
         showView('start-view');
     });
 
-    $('.fullscreen-on').on('click', function() {
+    $('.fullscreen-on').on('click touchend', function() {
         fullscreenToggle();
     });
 });

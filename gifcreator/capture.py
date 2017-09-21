@@ -100,7 +100,8 @@ def create_gif():
     local(cmd.format(**settings))
 
 def create_atlas():
-    cmd = "montage frames/preview00[0-1][1-9].png -tile 5x4 -geometry 240x320+0+0 -background transparent {output_dir}/atlas.png"
+    cmd = 'montage frames/preview00[0-1][1-9].png -tile 5x4 -geometry 240x320+0+0 -background transparent {output_dir}/atlas.png'
+    local(cmd.format(**settings))
 
 if __name__ == '__main__':
     main()

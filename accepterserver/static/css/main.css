@@ -24,7 +24,10 @@ body::after{
 
 h1 {
     font-size: 16em;
-    letter-spacing: -10px;
+}
+
+h2 {
+    font-size: 4em;
 }
 
 p {
@@ -79,8 +82,8 @@ p {
 
 .input-wrap span {
     display: block;
+    margin: 0.6em;
     font-size: 1.7em;
-    margin: 15px;
     color: #ff9090;
 }
 
@@ -91,8 +94,8 @@ p {
 .input-wrap input {
     width: 110%;
     margin: 0;
-    margin-left: -5%;
-    padding-top: 0.13em;
+    margin-left: -15%;
+    padding-top: 0.5em;
     border: none;
     letter-spacing: 0.15em;
     font-family: Futurice-Monospaced, "proxima-nova", "Helvetica Neue", Arial, sans-serif;
@@ -160,8 +163,7 @@ button:nth-child(even):hover {
 .neon {
     text-align: center;
     font-family: Futurice-Monospaced, "proxima-nova", "Helvetica Neue", Arial, sans-serif;
-    text-transform: lowercase;
-    color: #4a3092;
+    color: #ff9090;
 }
 
 .bright {
@@ -194,28 +196,24 @@ button:nth-child(even):hover {
     margin-bottom: 30px;
 }
 
+#preview-container {
+    height: 320px;
+}
+
 #preview-loader {
-    width: 100px;
-    height: 100px;
+    height: 320px;
+}
+
+#dance-view {
+    padding-top: 50px;
 }
 
 img.loader {
-  width: 40%;
+    width: 40%;
 }
 
-p#ok:hover {
-    cursor: pointer;
-}
-
-p#ok {
-    width: 80px;
-    height: 80px;
-    font-size: 5em;
-    text-align: center;
-    display: block;
-    position: fixed;
-    top: 25px;
-    left: 20px;
+img.loader.finlandia {
+    width: 70%;
 }
 
 .fullscreen .fullscreen-on {

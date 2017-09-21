@@ -201,7 +201,7 @@ $(function() {
     });
 
     $('#accept').on('click', function() {
-        $('#upload-view').html('<img src="/static/img/bottle.gif" height="300" alt="">');
+        $('#upload-view').html('<img src="/static/img/BirdSantaTom.gif" height="640" alt="">');
       
         showView('upload-view');
         sendGif(function() {

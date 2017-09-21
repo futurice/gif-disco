@@ -17,7 +17,7 @@
         ["17:00", "18:00", "/static/img/disco.jpg"],
         ["16:00", "17:00", "/static/img/disco.jpg"]
     ],
-
+    "maxVirtual": 100,
     "consumer_key": "<Twitter API Key>",
     "consumer_secret": "<Twitter API Secret>",
     "access_token_key": "<Twitter Access Token>",

@@ -27,7 +27,7 @@ browserLogger = logging.getLogger('browser')
 
 
 GIFS_PATH = path.get_resource('gifs.json')
-
+ATLAS_PATH = path.get_resource('atlas.json')
 
 # Very bad way of saving state in the backend
 state = {
@@ -144,6 +144,29 @@ def main_app(env, start_response):
         start_response('200 OK', [])
         return [json.dumps(format_gifs(gifs))]
 
+    # GET /atlas
+    elif request_path == '/atlas':
+        atlas = read_json(ATLAS_PATH)
+
+        # Check if there are new files
+        new_atlas_found = False
+        atlas_files = get_atlas_files()
+        for atlas_file in atlas_files:
+            atlas_id = atlas_file['id']
+
+            if atlas_id not in atlas['all']:
+                # New gif found, add it to all gifs and visible
+                logger.info('Adding new atlas %s to visible' % atlas_file['name'])
+                atlas['all'][atlas_id] = atlas_file
+                atlas['all'][atlas_id]['modified'] = int(time.time())
+
+                add_new_atlas(atlas['visible'], atlas_file)
+                new_gifs_found = True
+
+        save_json(ATLAS_PATH, atlas)
+        start_response('200 OK', [])
+        return [json.dumps(format_gifs(atlas))]
+
     elif request_path == '/background':
 
         backgrounds = settings['backgrounds']
@@ -214,6 +237,19 @@ def add_new_gif(visible_gifs, gif):
 
     visible_gifs.append(new_gif)
 
+def add_new_atlas(visible_atlas, atlas):
+    new_atlas = {
+        'id': atlas['id'],
+        'height': gif['height'],
+        'added': int(time.time())
+    }
+
+    if len(visible_atlas) >= settings['maxVirtual']:
+        oldest = visible_gifs.pop(0)
+        logger.info('Popped oldest %s' % oldest['id'])
+
+    visible_gifs.append(new_gif)
+
 
 def get_gif_files():
     gif_dir = os.path.abspath(path.get_resource('static/img/gifs'))
@@ -243,6 +279,35 @@ def get_gif_files():
         sorted_gif_files.append(gif_file)
 
     return sorted_gif_files
+
+def get_atlas_files():
+    atlas_dir = os.path.abspath(path.get_resource('static/img/atlas'))
+    atlas_paths = glob.glob(os.path.join(atlas_dir, '*.png'))
+
+    atlas_files = []
+    for atlas_path in atlas_paths:
+        filename = os.path.basename(atlas_path)
+        url = os.path.join('/static/img/atlas/', filename)
+
+        name, _ = os.path.splitext(filename)
+        name_id = gif_id_from_name(name)
+
+        im = Image.open(atlas_path)
+        width, height = im.size
+        creation_time = os.path.getmtime(atlas_path)
+
+        atlas_files.append((int(creation_time),
+                         {"url": url, "name": name, "id": name_id,
+                         "width": width, "height": height}))
+
+    # Sort files based on creation time
+    atlas_files.sort()
+    sorted_atlas_files = []
+    for creation_time, atlas_file in atlas_files:
+        atlas_file['created'] = creation_time
+        sorted_atlas_files.append(atlas_file)
+
+    return sorted_atlas_files
 
 
 def format_gifs(gifs):

@@ -1,5 +1,6 @@
 {
     "danceProgressTime": 3500,
     "gifScriptCommand": ["python", "../gifcreator/capture.py"],
-    "gifsDirectory": "../discoserver/static/img/gifs"
+    "gifsDirectory": "../discoserver/static/img/gifs",
+    "atlasDirectory": "../discoserver/static/img/atlas"
 }

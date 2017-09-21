@@ -77,6 +77,7 @@ def main_app(env, start_response):
 
     elif request_path == '/save_gif':
         directory = os.path.abspath(settings['gifsDirectory'])
+        atlasDir = os.path.abspath(settings['atlasDirectory'])
         
         code = get_post_data(env)
         
@@ -84,16 +85,20 @@ def main_app(env, start_response):
         if len(code) > 0:
             new_name += '_' + code;
         
+        atlas_name = new_name + '.png'
         new_name += '.gif'
         
         os.rename(path.get_resource('static/img/preview.gif'),
                   path.get_resource('static/img/%s' % new_name))
+        os.rename(path.get_resource('static/img/atlas.png'),
+                  path.get_resource('static/img/%s' % atlas_name))
 
         # Post image to the party app backend
         post_gif('static/img/%s' % new_name, code)
         
         shutil.move(path.get_resource('static/img/%s' % new_name), directory)
-        
+        shutil.move(path.get_resource('static/img/%s' % atlas_name), atlasDir)
+
         response = 'OK'
         start_response('200 OK', HEADERS)
         return [json.dumps(response)]

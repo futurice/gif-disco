@@ -55,6 +55,7 @@ def main():
     capture_video()
     split_video_to_frames()
     remove_green_from_frames()
+    create_atlas()
     create_gif()
 
 
@@ -98,6 +99,8 @@ def create_gif():
           '"{output_dir}/preview.gif"'
     local(cmd.format(**settings))
 
+def create_atlas():
+    cmd = "montage frames/preview00[0-1][1-9].png -tile 5x4 -geometry 240x320+0+0 -background transparent {output_dir}/atlas.png"
 
 if __name__ == '__main__':
     main()

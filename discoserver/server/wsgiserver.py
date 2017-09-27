@@ -240,15 +240,15 @@ def add_new_gif(visible_gifs, gif):
 def add_new_atlas(visible_atlas, atlas):
     new_atlas = {
         'id': atlas['id'],
-        'height': gif['height'],
+        'height': atlas['height'],
         'added': int(time.time())
     }
 
     if len(visible_atlas) >= settings['maxVirtual']:
-        oldest = visible_gifs.pop(0)
+        oldest = visible_atlas.pop(0)
         logger.info('Popped oldest %s' % oldest['id'])
 
-    visible_gifs.append(new_gif)
+    visible_atlas.append(new_atlas)
 
 
 def get_gif_files():

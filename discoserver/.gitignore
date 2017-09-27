@@ -1,5 +1,6 @@
 # Generated resources
 static/img/gifs
+static/img/atlas
 
 *.py[cod]
 

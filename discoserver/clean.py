@@ -13,7 +13,7 @@ def main():
     f.close()
 
     f = open('atlas.json', 'w')
-    f.write('{"visible": [], "lastAddedId": null}')
+    f.write('{"visible": [], "all": {}, "lastAddedId": null}')
     f.close
 
     gif_dir = os.path.join(script_dir, 'static/img/gifs')

@@ -9,8 +9,8 @@ import os
 import colorsys
 
 
-GREEN_RANGE_MIN_HSV = (100, 80, 70)
-GREEN_RANGE_MAX_HSV = (185, 255, 255)
+GREEN_RANGE_MIN_HSV = (100, 20, 70)
+GREEN_RANGE_MAX_HSV = (185, 200, 255)
 
 
 def rgb_to_hsv(r, g ,b):

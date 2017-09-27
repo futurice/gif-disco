@@ -36,28 +36,44 @@ settings = {
 
     # Use wacaw -L to list available camera inputs. In OS X 0 is usually
     # iSight, and 1 is USB web cam. It might change though.
-    'camera_input': '0',
+    'camera_input': '1',
   
     # Select capture tool from the cmds list below
-    'capture_cmd': 'avfoundation'
+    'capture_cmd': 'streamer'
 }
 
 cmds = {
     # AVFoundation is available on Mac OS X 10.7 (Lion) and later.
-    'avfoundation': 'ffmpeg -f avfoundation -framerate 30 -i "{camera_input}:none" -video_size {output_size} -t 4 -y preview.mpg',
+    'avfoundation': {
+      'cmd': 'ffmpeg -f avfoundation -framerate 30 -i "{camera_input}:none" -video_size {output_size} -t 4 -y preview.{extension}',
+      'extension': 'mpg'
+    },
   
     # Wacaw needs to be installed separately for Mac OS
-    'wacaw': 'wacaw -d {camera_input} -i {camera_input} --video --duration 4 --width {width} --height {height} preview'
+    'wacaw': {
+      'cmd': 'wacaw -d {camera_input} -i {camera_input} --video --duration 4 --width {width} --height {height} preview',
+      'extension': 'avi'
+    },
+    
+    # Streamer can be used for at least on Ubuntu.
+    'streamer': {
+      'cmd': 'streamer -q -c /dev/video{camera_input} -f rgb24 -r 7 -t 00:00:06 -o preview.{extension}',
+      'extension': 'avi'
+    }
 }
 
 def main():
     clean()
+    print('capture video')
     capture_video()
+    print('split video')
     split_video_to_frames()
+    print('remove background')
     remove_green_from_frames()
+    print('create atlas')
     create_atlas()
+    print('create gif')
     create_gif()
-
 
 def clean():
     with ctx.settings(warn_only=True):
@@ -65,12 +81,14 @@ def clean():
 
 def capture_video():
     w, h = settings['output_size'].split('x')
-    cmd = cmds[settings['capture_cmd']]
-    local(cmd.format(width=w, height=h, **settings))
+    cmd = cmds[settings['capture_cmd']]['cmd'];
+    ext = cmds[settings['capture_cmd']]['extension'];
+    local(cmd.format(width=w, height=h, extension=ext, **settings))
 
 def split_video_to_frames():
-    cmd = r'ffmpeg -i "preview.mpg" -an -ss 00:00:01.50 -r 7 -f image2 -s {output_size} "frames/preview%4d.png"'
-    local(cmd.format(**settings))
+    cmd = r'ffmpeg -i "preview.{extension}" -an -ss 00:00:01.50 -r 7 -f image2 -s {output_size} "frames/preview%4d.png"'
+    ext = cmds[settings['capture_cmd']]['extension'];
+    local(cmd.format(extension=ext, **settings))
 
 
 def remove_green_from_frames():

@@ -1,6 +1,6 @@
 Fabric==1.8.1
 Pillow==2.5.3
-ecdsa==0.10
+ecdsa==0.13.3
 gevent==0.13.8
 greenlet==0.4.1
 httplib2==0.8
